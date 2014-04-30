@@ -19,6 +19,7 @@ NSString *const XCDMetadataKeyTitle = @"Title";
 NSString *const XCDMetadataKeySmallThumbnailURL = @"SmallThumbnailURL";
 NSString *const XCDMetadataKeyMediumThumbnailURL = @"MediumThumbnailURL";
 NSString *const XCDMetadataKeyLargeThumbnailURL = @"LargeThumbnailURL";
+NSString *const XCDMetadataKeyDuration = @"Duration";
 
 static NSDictionary *DictionaryWithQueryString(NSString *string, NSStringEncoding encoding)
 {
@@ -268,11 +269,14 @@ static void *XCDYouTubeVideoPlayerViewControllerKey = &XCDYouTubeVideoPlayerView
 		NSURL *streamURL = streamURLs[videoQuality];
 		if (streamURL)
 		{
+			NSString *duration = video[@"length_seconds"];
 			NSString *title = video[@"title"];
 			NSString *thumbnailSmall = video[@"thumbnail_url"];
 			NSString *thumbnailMedium = video[@"iurlsd"];
 			NSString *thumbnailLarge = video[@"iurlmaxres"];
 			NSMutableDictionary *userInfo = [NSMutableDictionary new];
+			if (duration)
+				userInfo[XCDMetadataKeyDuration] = duration;
 			if (title)
 				userInfo[XCDMetadataKeyTitle] = title;
 			if (thumbnailSmall)
