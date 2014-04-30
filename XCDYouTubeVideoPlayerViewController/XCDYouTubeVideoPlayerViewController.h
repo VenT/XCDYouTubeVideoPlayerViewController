@@ -30,6 +30,7 @@ MP_EXTERN NSString *const XCDMetadataKeyTitle;
 MP_EXTERN NSString *const XCDMetadataKeySmallThumbnailURL;
 MP_EXTERN NSString *const XCDMetadataKeyMediumThumbnailURL;
 MP_EXTERN NSString *const XCDMetadataKeyLargeThumbnailURL;
+MP_EXTERN NSString *const XCDMetadataKeyDuration;
 
 @interface XCDYouTubeVideoPlayerViewController : MPMoviePlayerViewController
 
